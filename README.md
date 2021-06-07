@@ -2,11 +2,15 @@
 
 Usinng the <code>corona-api.com</code> API and <code>tkinter</code>, I created a GUI to quickly retrieve information about COVID-19 and display it graphically. Data is temporarilly cached locally so that only one GET request is done per session.
 
-![alt text](https://ibb.co/ZKmbVth)
+---
 
-![alt text](https://ibb.co/88pDH61)
+## EXAMPLES
 
-[alt text](https://ibb.co/SfpSJF3)
+![alt text](/data/img/menu1.png)
+![alt text](/data/img/menu2.png)
+![alt text](/data/img/results.png)
+
+---
 
 You can retrieve information about:
 
