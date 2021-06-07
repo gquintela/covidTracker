@@ -1,6 +1,12 @@
 # COVID-19 Visualizer and Tracker
 
-Usinng the <code>corona-api.com</code> API and <code><tkinter</code>, I created a GUI to quickly retrieve information about COVID-19 and display it graphically. Data is temporarilly cached locally so that only one GET request is done per session.
+Usinng the <code>corona-api.com</code> API and <code>tkinter</code>, I created a GUI to quickly retrieve information about COVID-19 and display it graphically. Data is temporarilly cached locally so that only one GET request is done per session.
+
+![alt text](https://ibb.co/ZKmbVth)
+
+![alt text](https://ibb.co/88pDH61)
+
+[alt text](https://ibb.co/SfpSJF3)
 
 You can retrieve information about:
 
@@ -21,3 +27,14 @@ You can retrieve information about:
     </ul>
   </li>
 </ul>
+
+  -----
+  
+  ## USAGE
+  
+  <code>pip3 install requirements.txt</code>
+  
+  <code>python3 main.py</code> from <code>src/</code>
+  
+
+
