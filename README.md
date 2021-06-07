@@ -1,6 +1,6 @@
 # COVID-19 Visualizer and Tracker
 
-Usinng the <code>corona-api.com</code> API and <code>tkinter</code>, I created a GUI to quickly retrieve information about COVID-19 and display it graphically. Data is temporarilly cached locally so that only one GET request is done per session.
+Using the <code>corona-api.com</code> API and <code>tkinter</code>, I created a GUI to quickly retrieve information about COVID-19 and display it graphically. Data is temporarilly cached locally so that only one GET request is done per session.
 
 ---
 
