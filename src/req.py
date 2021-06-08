@@ -10,7 +10,6 @@ def getData(inputCountryISO,dataType, lastNDays, dayChoosen):
 	lastNDays = int(lastNDays)
 	dataTypeLegend = dataType
 	dataType = dataTypeValues[dataType]
-	json_data = ""
 	if inputCountryISO not in cacheDict:
 		r = requests.get(f'https://corona-api.com/countries/{inputCountryISO}')
 
