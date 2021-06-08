@@ -1,10 +1,8 @@
-from inputChecks import *
-from globals import *
-from req import *
-from countryMethods import *
+from inputChecks import isInputValidated
+from req import getData
+from countryMethods import getISO
 from tkinter import messagebox
 import os
-
 
 def reset(countryMenu, dataTypeMenu, days, weekdayMenu, infoLbl):
 	countryMenu.selection_clear()
@@ -26,13 +24,6 @@ def run(countryMenu, dataTypeMenu, days, weekdayMenu, infoLbl):
 		infoLbl['text'] = "Proccessing..."
 		getData(getISO(countryMenu.get()),dataTypeMenu.get(), days.get(), weekdayMenu.get())
 		infoLbl['text'] = ""
-
-def deleteCache(window):
-	if os.path.exists('../data/cache/'):
-		for filename in os.listdir('../data/cache/'):
-			if filename.endswith(".json"):
-				os.remove('../data/cache/' + filename)
-	window.destroy()
 
 def changeDaysLabel(window, label):
 	label = "LAST N WEEKS:"

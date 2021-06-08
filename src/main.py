@@ -1,18 +1,14 @@
 import json
 import sys
-from tkinter import *
-from btnMethods import *
-from countryMethods import *
-from globals import *
+from tkinter import Tk, StringVar, Label, Entry, Button, Grid
+from btnMethods import run, reset 
+from countryMethods import getCountries
+from globals import mainFontSize, mainFont, padx, pady
 from tkinter import ttk
-from utils import *
+from utils import weekDict, dataTypeValues
 
 window = Tk()
 window.title("Corona tracking API")
-# window.geometry('400x200')
-# background_image = PhotoImage(file="../data/background.png")
-# background_label = Label(window, image=background_image)
-# background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
 backgroundColor = "#41B3A3"
 backgroundBoxColor = "#52C4B4"
@@ -30,7 +26,6 @@ combostyle.theme_create('combostyle', parent='alt',
 combostyle.theme_use('combostyle')
 
 # variables
-cacheDict = {}
 country = StringVar(window)
 country.set("Select a country")
 days = StringVar(window)
@@ -48,7 +43,6 @@ dataTypeLbl = Label(window, text="DATA TYPE:", font=(mainFont + " Bold", mainFon
 daysLbl = Label(window, text="LAST N DAYS:", font=(mainFont + " Bold", mainFontSize), bg = backgroundColor)
 weekDayLbl = Label(window, text="ONLY WEEK DAY?", font=(mainFont + " Bold", mainFontSize), bg = backgroundColor)
 infoLbl = Label(window, text="", font=(mainFont + " Bold", mainFontSize), bg = backgroundColor)
-
 
 
 ###input
@@ -91,7 +85,6 @@ resetBtn.config({"background": "MediumSeaGreen"})
 
 Grid.rowconfigure(window, 0, weight=1)
 Grid.columnconfigure(window, 0, weight=1)
-
 
 countryLbl.grid(
     column=0,
@@ -168,6 +161,5 @@ infoLbl.grid(
     columnspan=4,
     row=6)
 
-window.protocol('WM_DELETE_WINDOW', lambda: deleteCache(window))
 window.mainloop()
 

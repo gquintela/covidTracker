@@ -1,34 +1,24 @@
 import requests
 import json
-from globals import cacheDictIndex
-from utils import *
+from globals import cacheDict
+from utils import formatMyDate, weekDict, dataTypeValues, customIndex
 import datetime
 import time
-from draw import *
+from draw import drawFigure
 
 def getData(inputCountryISO,dataType, lastNDays, dayChoosen):
 	lastNDays = int(lastNDays)
 	dataTypeLegend = dataType
 	dataType = dataTypeValues[dataType]
 	json_data = ""
-	if inputCountryISO in cacheDictIndex:
-		# data cached
-		with open(f'../data/cache/{inputCountryISO}.json') as fp:
-		    r = json.load(fp)
-		timeline = r['data']['timeline']
-		countryName = r['data']['name']
-	else:
-		cacheDictIndex.append(inputCountryISO)
+	if inputCountryISO not in cacheDict:
 		r = requests.get(f'https://corona-api.com/countries/{inputCountryISO}')
 
 		# save data to cache
-		json_data = r.json()
-		with open(f'../data/cache/{inputCountryISO}.json', 'w') as f:
-			json.dump(json_data, f)
-		f.close()
+		cacheDict[inputCountryISO] = r.json()
 
-		countryName = json_data['data']['name']
-		timeline = json_data['data']['timeline']
+	countryName = cacheDict[inputCountryISO]['data']['name']
+	timeline = cacheDict[inputCountryISO]['data']['timeline']
 
 	dataTypeList = []
 	dateList = []
