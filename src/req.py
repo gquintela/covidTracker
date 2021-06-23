@@ -7,9 +7,11 @@ import time
 from draw import drawFigure
 
 def getData(inputCountryISO,dataType, lastNDays, dayChoosen):
+
 	lastNDays = int(lastNDays)
 	dataTypeLegend = dataType
 	dataType = dataTypeValues[dataType]
+	factor = 1
 	if inputCountryISO not in cacheDict:
 		r = requests.get(f'https://corona-api.com/countries/{inputCountryISO}')
 
@@ -18,6 +20,9 @@ def getData(inputCountryISO,dataType, lastNDays, dayChoosen):
 
 	countryName = cacheDict[inputCountryISO]['data']['name']
 	timeline = cacheDict[inputCountryISO]['data']['timeline']
+	if(dataTypeLegend == "Confirmed per 100.000"):
+		population = int(cacheDict[inputCountryISO]['data']['population'])
+		factor = 100000/population
 
 	dataTypeList = []
 	dateList = []
@@ -41,4 +46,5 @@ def getData(inputCountryISO,dataType, lastNDays, dayChoosen):
 	# Data for plotting
 	s = dateList[-lastNDays:]
 	t = dataTypeList[-lastNDays:]
-	drawFigure(s,t,dayChoosen,lastNDays, countryName, dataTypeLegend)
+	t = [int(i) * factor for i in t]
+	return (s,t,dayChoosen,lastNDays, countryName, dataTypeLegend)

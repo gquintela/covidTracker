@@ -15,6 +15,7 @@ dataTypeValues = {"Deaths": "deaths" ,
 				"New confirmed": "new_confirmed",
 				"New Recovered": "new_recovered",
 				"New Deaths": "new_deaths",
+				"Confirmed per 100.000": "new_confirmed",
 				"Active": "active"}
 
 def customIndex(e, list):
