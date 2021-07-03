@@ -1,7 +1,7 @@
 import requests
 import json
 from globals import cacheDict
-from utils import formatMyDate, weekDict, dataTypeValues, customIndex
+from utils import formatMyDate, weekDict, dataTypeValues, customIndex, get_corrected_date
 import datetime
 import time
 from draw import drawFigure
@@ -41,7 +41,7 @@ def getData(inputCountryISO,dataType, lastNDays, dayChoosen):
 			continue
 		else:
 			dataTypeList.insert(0, timeline[i][dataType])
-			dateList.insert(0, rawDate)
+			dateList.insert(0, get_corrected_date(rawDate))
 
 	# Data for plotting
 	s = dateList[-lastNDays:]
