@@ -47,6 +47,8 @@ list_of_days = get_list_of_days()
 def get_corrected_date(bad_date):
     if bad_date == "01-01":
         return "31-12"
+    if bad_date == "29-02":
+        return "28-02"
     index = list_of_days.index(bad_date)
     index -= 1
     return list_of_days[index]
